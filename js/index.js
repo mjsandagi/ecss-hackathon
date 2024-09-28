@@ -1,8 +1,23 @@
-//const getCanvas = document.getElementById("diagramCanvas");
+// const getCanvas = document.getElementById("diagramCanvas");
+// backgroundColor: "white"
 const canvas = new fabric.Canvas("diagramCanvas", {});
 
 // Get the color picker input
 const colorPicker = document.getElementById("colorPicker");
+
+const deleteSelectedObject = function () {
+    const activeObject = canvas.getActiveObject();
+    if (activeObject) {
+        canvas.remove(activeObject);
+        canvas.renderAll();
+    }
+};
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Delete" || event.key === "Backspace") {
+        deleteSelectedObject();
+    }
+});
 
 // Event listener to update color of selected object
 colorPicker.addEventListener("input", function () {
@@ -27,6 +42,7 @@ document.getElementById("addRect").addEventListener("click", function () {
         height: 100,
     });
     canvas.add(rect);
+    canvas.setActiveObject(rect);
 });
 
 // Add circle functionality
@@ -38,6 +54,7 @@ document.getElementById("addCircle").addEventListener("click", function () {
         fill: colorPicker.value,
     });
     canvas.add(circle);
+    canvas.setActiveObject(circle);
 });
 
 // Add line functionality
@@ -47,6 +64,7 @@ document.getElementById("addLine").addEventListener("click", function () {
         strokeWidth: 2,
     });
     canvas.add(line);
+    canvas.setActiveObject(line);
 });
 
 // Clear canvas
@@ -63,8 +81,9 @@ document.getElementById("addText").addEventListener("click", function () {
         color: colorPicker.value,
     });
     canvas.add(text);
+    canvas.setActiveObject(text);
 });
-
+//parallelogram
 document
     .getElementById("addParallelogram")
     .addEventListener("click", function () {
@@ -85,8 +104,9 @@ document
             false
         );
         canvas.add(para);
+        canvas.setActiveObject(para);
     });
-
+//diamond
 document.getElementById("addDiamond").addEventListener("click", function () {
     // Get coordinates
     var sweep = Math.PI / 2;
@@ -109,14 +129,29 @@ document.getElementById("addDiamond").addEventListener("click", function () {
     );
 
     canvas.add(diamond);
+    canvas.setActiveObject(diamond);
 });
-
+//export to png
 document.getElementById("exportPng").addEventListener("click", function () {
-    var canvas = get
+    var data = canvas.toDataURL("image/png", 1.0);
+    var save = document.createElement("a");
+    save.href = data;
+    save.download = "Diagram.png";
+    document.body.appendChild(save);
+    save.click();
 });
 
-// TODO: delete current element, export png
+document.getElementById("deleteElement").addEventListener("click", function () {
+    deleteSelectedObject();
+});
 
-document
-    .getElementById("deleteElement")
-    .addEventListener("click", function () {});
+//arrow
+document.getElementById("addArrow").addEventListener("click", function () {
+    var arrow = new fabric.arrow({
+        fill: colorPicker.value,
+        top: 50,
+        left: 50,
+    });
+    canvas.add(arrow);
+    canvas.setActiveObject(arrow);
+});
