@@ -15,7 +15,7 @@ const deleteSelectedObject = function () {
 
 // Event listener to delete object
 document.addEventListener("keydown", function (event) {
-    if (event.key === "Delete" || event.key === "Backspace") {
+    if (event.key === "Delete") {
         deleteSelectedObject();
     }
 });
