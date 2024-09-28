@@ -9,7 +9,7 @@ document.getElementById("addRect").addEventListener("click", function () {
     const rect = new fabric.Rect({
         left: 100,
         top: 100,
-        fill: "red",
+        fill: colorPicker.value,
         width: 100,
         height: 100,
     });
@@ -22,7 +22,7 @@ document.getElementById("addCircle").addEventListener("click", function () {
         left: 150,
         top: 150,
         radius: 50,
-        fill: "blue",
+        fill: colorPicker.value,
     });
     canvas.add(circle);
 });
@@ -30,7 +30,7 @@ document.getElementById("addCircle").addEventListener("click", function () {
 // Add line functionality
 document.getElementById("addLine").addEventListener("click", function () {
     const line = new fabric.Line([50, 50, 200, 200], {
-        stroke: "black",
+        stroke: colorPicker.value,
         strokeWidth: 2,
     });
     canvas.add(line);
@@ -46,7 +46,56 @@ document.getElementById("addText").addEventListener("click", function () {
         left: 200,
         top: 200,
         fontSize: 20,
-        fill: "black",
+        fill: colorPicker.value,
+        color: colorPicker.value,
     });
     canvas.add(text);
 });
+
+document
+    .getElementById("addParallelogram")
+    .addEventListener("click", function () {
+        var radius = 50;
+        var points = [
+            { x: 0, y: 0 },
+            { x: 50, y: 0 },
+            { x: 30, y: 50 },
+            { x: -20, y: 50 },
+        ];
+        const para = new fabric.Polygon(
+            points,
+            {
+                fill: colorPicker.value,
+                top: 50,
+                left: 50,
+            },
+            false
+        );
+        canvas.add(para);
+    });
+
+document.getElementById("addDiamond").addEventListener("click", function () {
+    // Get coordinates
+    var sweep = Math.PI / 2;
+    var radius = 50;
+    var points = [];
+    for (var i = 0; i < 4; i++) {
+        var x = radius + radius * Math.cos(i * sweep);
+        var y = radius + radius * Math.sin(i * sweep);
+        points.push({ x: x, y: y });
+    }
+
+    const diamond = new fabric.Polygon(
+        points,
+        {
+            fill: colorPicker.value,
+            left: 50,
+            top: 50,
+        },
+        false
+    );
+
+    canvas.add(diamond);
+});
+
+// TODO: Parallelograms, delete, export png

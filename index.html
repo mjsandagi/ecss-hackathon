@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Diagram maker</title>
+        <title>INME</title>
         <!-- INSERT PAGE TITLE-->
         <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/index.min.js"></script>
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />  <!--FAVICON-->
@@ -13,19 +13,22 @@
         <div class="toolbox">
             <!-- List of tools-->
             <input class="toolboxButton" type="color" id="colorPicker" value="#000000">
+            <!-- Add shapes-->
             <button id="addRect" class="toolboxButton">Add Rectangle</button>
             <button id="addCircle" class="toolboxButton">Add Circle</button>
             <button id="addParallelogram" class="toolboxButton">Add Parallelogram</button>
             <button id="addDiamond" class="toolboxButton">Add Diamond</button>
+            <!-- Add miscellaneous-->
             <button id="addLine" class="toolboxButton">Add Line</button>
             <button id="addText" class="toolboxButton">Add text</button>
+            <!-- Add miscellaneous-->
             <button id="deleteElement" class="toolboxButton">Delete element</button>
             <button id="clearAll" class="toolboxButton">Clear Canvas</button>
             <button id="exportPng" class="toolboxButton">Export PNG</button>
         </div>
         <div class="canvas">
             <!-- Workspace -->
-             <canvas id="diagramCanvas" width="5000px" height="1000"></canvas>
+             <canvas id="diagramCanvas" width="5000px" height="1000px"></canvas>
         </div>
     <script await src="./js/index.js"></script>
 </html>
