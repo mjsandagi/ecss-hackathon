@@ -9,6 +9,13 @@
 ## Features
 
 -   All standard flowchart shapes
--   Ability to connect shapes with lines
+-   Ability to connect shapes with lines and arrows
 -   Ability to add text
 -   PNG export feature
+
+### Credits
+
+-   [@mjsandagi](https://github.com/mjsandagi)
+-   [@SakuragamaRykii](https://github.com/SakuragamaRykii)
+-   [@xhd1e23](https://github.com/xhd1e23)
+-   [@rednir](https://github.com/rednir)

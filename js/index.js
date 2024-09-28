@@ -13,6 +13,7 @@ const deleteSelectedObject = function () {
     }
 };
 
+// Event listener to delete object
 document.addEventListener("keydown", function (event) {
     if (event.key === "Delete" || event.key === "Backspace") {
         deleteSelectedObject();
@@ -83,6 +84,7 @@ document.getElementById("addText").addEventListener("click", function () {
     canvas.add(text);
     canvas.setActiveObject(text);
 });
+
 //parallelogram
 document
     .getElementById("addParallelogram")
@@ -106,6 +108,7 @@ document
         canvas.add(para);
         canvas.setActiveObject(para);
     });
+
 //diamond
 document.getElementById("addDiamond").addEventListener("click", function () {
     // Get coordinates
@@ -131,6 +134,31 @@ document.getElementById("addDiamond").addEventListener("click", function () {
     canvas.add(diamond);
     canvas.setActiveObject(diamond);
 });
+
+//arrow
+document.getElementById("addArrow").addEventListener("click", function () {
+    var points = [
+        { x: 0, y: 0 },
+        { x: -20, y: 10 },
+        { x: -5, y: 10 },
+        { x: -5, y: 60 },
+        { x: 5, y: 60 },
+        { x: 5, y: 10 },
+        { x: 20, y: 10 },
+    ];
+    const arrow = new fabric.Polygon(
+        points,
+        {
+            fill: colorPicker.value,
+            left: 50,
+            top: 50,
+        },
+        false
+    );
+    canvas.add(arrow);
+    canvas.setActiveObject(arrow);
+});
+
 //export to png
 document.getElementById("exportPng").addEventListener("click", function () {
     var data = canvas.toDataURL("image/png", 1.0);
@@ -143,15 +171,4 @@ document.getElementById("exportPng").addEventListener("click", function () {
 
 document.getElementById("deleteElement").addEventListener("click", function () {
     deleteSelectedObject();
-});
-
-//arrow
-document.getElementById("addArrow").addEventListener("click", function () {
-    var arrow = new fabric.arrow({
-        fill: colorPicker.value,
-        top: 50,
-        left: 50,
-    });
-    canvas.add(arrow);
-    canvas.setActiveObject(arrow);
 });

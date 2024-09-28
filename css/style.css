@@ -3,11 +3,15 @@ body {
     background-color: #ffa973;
     color: #f0f8ff;
 }
+button:hover {
+    background-color: #dfff69;
+    transition-duration: 0.4s;
+}
 
 .button {
     /* DEFAULT */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #e8dcca;
-    border: none;
     color: white;
     padding: 16px 32px;
     text-align: center;
