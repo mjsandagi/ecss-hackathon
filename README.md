@@ -21,3 +21,7 @@
 -   [@SakuragamaRykii](https://github.com/SakuragamaRykii)
 -   [@xhd1e23](https://github.com/xhd1e23)
 -   [@rednir](https://github.com/rednir)
+
+### Design
+
+![INME Design](./assets/inme.png)
