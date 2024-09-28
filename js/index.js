@@ -4,6 +4,19 @@ const canvas = new fabric.Canvas("diagramCanvas", {});
 // Get the color picker input
 const colorPicker = document.getElementById("colorPicker");
 
+// Event listener to update color of selected object
+colorPicker.addEventListener("input", function () {
+    const activeObject = canvas.getActiveObject();
+    if (activeObject) {
+        if (activeObject.type === "line") {
+            activeObject.set("stroke", colorPicker.value);
+        } else {
+            activeObject.set("fill", colorPicker.value);
+        }
+        canvas.renderAll();
+    }
+});
+
 // Add rectangle functionality
 document.getElementById("addRect").addEventListener("click", function () {
     const rect = new fabric.Rect({
@@ -98,4 +111,12 @@ document.getElementById("addDiamond").addEventListener("click", function () {
     canvas.add(diamond);
 });
 
-// TODO: Parallelograms, delete, export png
+document.getElementById("exportPng").addEventListener("click", function () {
+    var canvas = get
+});
+
+// TODO: delete current element, export png
+
+document
+    .getElementById("deleteElement")
+    .addEventListener("click", function () {});

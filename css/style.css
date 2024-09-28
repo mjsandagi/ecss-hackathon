@@ -1,13 +1,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #ff7a25;
+    background-color: #ffa973;
     color: #f0f8ff;
-}
-
-.canvas {
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 5px;
-    background-color: #f0f8ff;
 }
 
 .button {
@@ -30,7 +24,22 @@ body {
     color: white;
 }
 
+.canvas {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    /* margin: 10px; */
+}
+
 .toolbox {
+    /*
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    */
+
     display: flex;
     height: 40px;
     margin: 5px;
